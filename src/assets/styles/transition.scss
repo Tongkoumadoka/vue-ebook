@@ -1,0 +1,76 @@
+// 过渡动画
+// @tab
+// 1.显示:
+.slide-down-enter {
+  // 进入之前--隐藏=>显示
+  //设置位移 垂直方向移出100%
+  transform: translate3d(0, -100%, 0);
+}
+.slide-down-enter-to {
+  // 进入之后 位移还原
+  transform: translate3d(0, 0, 0);
+}
+.slide-down-enter-active {
+  // 过程的过渡动画
+  // 组件内容 过渡时间 动画方向
+  transition: all 0.3s linear;
+}
+// 2.隐藏
+.slide-down-leave {
+  // 进入之前--隐藏=>显示
+  //设置位移 垂直方向移出100%
+  transform: translate3d(0, 0, 0);
+}
+.slide-down-leave-to {
+  // 进入之后 位移还原
+  transform: translate3d(0, -100%, 0);
+}
+.slide-down-leave-active {
+  // 过程的过渡动画
+  // 组件内容 过渡时间 动画方向
+  transition: all 0.3s linear;
+}
+
+//@menu
+.slide-up-enter {
+  // 垂直方向向下移出本身长度百分之百
+  transform: translate3d(0, 100%, 0);
+}
+
+.slide-up-enter-to {
+  transform: translate3d(0, 0, 0);
+}
+
+.slide-up-enter-active {
+  transition: all 0.3s linear;
+}
+
+.slide-up-leave {
+  transform: translate3d(0, 0, 0);
+}
+
+.slide-up-leave-to {
+  // 要保证隐藏速度同步
+  transform: translate3d(0, px2rem(138), 0);
+}
+
+.slide-up-leave-active {
+  transition: all 0.3s linear;
+}
+
+//@pop-up
+.popup-slide-up-enter,
+.popup-slide-up-leave-to {
+  transform: translate3d(0, 100%, 0);
+  opacity: 0;
+}
+.popup-slide-up-enter-to,
+.popup-slide-up-leave {
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
+}
+
+.popup-slide-up-enter-active,
+.popup-slide-up-leave-active {
+  transition: all 0.2s linear;
+}

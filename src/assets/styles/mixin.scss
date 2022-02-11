@@ -1,0 +1,20 @@
+// 全局适用的混入
+
+// 这个混入是实现flex盒子子组件的垂直水平居中,和flex属性一起使用
+@mixin center() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// 定义rem转换方法
+// 20等分设计稿,因为设计稿一般为750px 20 等分 1rem = 37.5px
+// @import 引入后,可以使用该函数,输入px,得到对应rem值
+//  font-size: px2rem(40);
+$ratio: calc(750 / 40);
+
+@function px2rem($px) {
+  // 输入任意px得到该设备对应rem值
+  // 修改ratio即可修改对应比例
+  @return calc($px / $ratio) + rem;
+}

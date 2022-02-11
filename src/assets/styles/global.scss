@@ -1,0 +1,11 @@
+@import './reset';
+@import './mixin.scss';
+@import './transition.scss';
+// 设置全局icon的默认样式,可以直接引用
+.icon {
+  color: #333;
+  font-size: px2rem(20); //默认20px
+}
+
+// global.css只负责全局样式文件的入口
+// 需要混入等只需要引入gloobal即可
