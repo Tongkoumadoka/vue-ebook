@@ -2,11 +2,13 @@ const book = {
   state: {
     fileName: '',
     menuVisible: false,
-    settingVisible: -1,
+    settingVisible: -1, // 0为字体设置/3为全局样式
     defaultFontSize: 16,
     // 传递默认字体类型
     defaultFontFamily: 'Default',
+    // 字体设置弹窗
     fontFamilyVisible: false,
+    // 默认主题
     defaultTheme: 'Default',
     bookAvailable: false,
     progress: 0,

@@ -1,4 +1,6 @@
 import { mapGetters, mapActions } from 'vuex'
+// 引入book.js中进行混入
+import { themeList } from './book'
 
 // 先引入ebook 中需要的mapgetters,让所有组件都只引用mixin
 // 修改只在这一处修改,引用只需引用mixin
@@ -25,7 +27,11 @@ export const ebookMixin = {
       'pagelist',
       'offsetY',
       'isBookmark'
-    ])
+    ]),
+    // 因为这个混入是从book.js中引入的静态变量,不同有vuex中的
+    themeList() {
+      return themeList(this)
+    }
   },
   // 混入actions
   methods: {

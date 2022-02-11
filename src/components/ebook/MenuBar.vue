@@ -6,7 +6,7 @@
            :class="{'hide-box-shadow':settingVisible === 0 || !menuVisible}">
         <div class="icon-wrapper">
           <span class="icon-menu icon"
-                @click="showSetting(1)"></span>
+                @click="showSetting(3)"></span>
         </div>
         <div class="icon-wrapper">
           <span class="icon-progress icon"
@@ -14,7 +14,7 @@
         </div>
         <div class="icon-wrapper">
           <span class="icon-bright icon"
-                @click="showSetting(3)"></span>
+                @click="showSetting(1)"></span>
         </div>
         <div class="icon-wrapper">
           <!-- 注意下这个icon-a -->
@@ -25,7 +25,7 @@
     </transition>
     <ebook-setting-fonts></ebook-setting-fonts>
     <ebook-setting-font-popup></ebook-setting-font-popup>
-
+    <ebook-setting-theme></ebook-setting-theme>
   </div>
 </template>
 
@@ -35,13 +35,15 @@ import { ebookMixin } from '../../utils/mixin'
 // 引入四个功能组件
 import EbookSettingFonts from './EbookSettingFonts.vue'
 import EbookSettingFontPopup from './EbookSettingFontPopup.vue'
+import EbookSettingTheme from './EbookSettingTheme.vue'
 
 // import { mapGetters } from 'vuex'
 export default {
   mixins: [ebookMixin],
   components: {
     EbookSettingFonts,
-    EbookSettingFontPopup
+    EbookSettingFontPopup,
+    EbookSettingTheme
   },
   data() {
     return {}

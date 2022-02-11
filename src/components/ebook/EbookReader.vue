@@ -15,7 +15,9 @@ import {
   getFontFamily,
   saveFontFamily,
   getFontSize,
-  saveFontSize
+  saveFontSize,
+  saveTheme,
+  getTheme
 } from '../../utils/localStorage'
 global.ePub = Epub
 
@@ -52,6 +54,7 @@ export default {
       this.rendition.display().then(() => {
         this.initFontSize()
         this.initFontFamily()
+        this.initTheme()
       })
       // @实现手势翻页
       // 移动端的touch事件处理
@@ -118,7 +121,7 @@ export default {
       let fontSize = getFontSize(this.fileName)
       if (!fontSize) {
         // 不能获取到则缓存默认设置
-        saveFontFamily(this.fileName, this.defaultFontSize)
+        saveFontSize(this.fileName, this.defaultFontSize)
       } else {
         // 能获取到则设置为该属性
         this.rendition.themes.fontSize(fontSize)
@@ -130,12 +133,29 @@ export default {
       let font = getFontFamily(this.fileName)
       if (!font) {
         // 不能获取到则缓存默认设置
-        saveFontFamily(this.fileName, this.defaultFontFamily)
+        saveFontFamily(this.fileName, 'Default')
       } else {
         // 能获取到则设置为该属性
         this.rendition.themes.font(font)
         this.setDefaultFontFamily(font)
       }
+    },
+    // 注册主题
+    initTheme() {
+      // 缓存设置
+      let defaultTheme = getTheme(this.fileName)
+      console.log(defaultTheme)
+      if (!defaultTheme) {
+        defaultTheme = this.themeList[0].name
+        this.setDefaultTheme(defaultTheme)
+        saveTheme(this.fileName, defaultTheme)
+      }
+      this.themeList.forEach((theme) => {
+        // 注册名称和对应style
+        this.rendition.themes.register(theme.name, theme.style)
+      })
+      // 选择默认样式
+      this.rendition.themes.select(defaultTheme)
     },
     prevPage() {
       //判断rendition对象是否存在,存在就调用prev()方法 => epubjs的
