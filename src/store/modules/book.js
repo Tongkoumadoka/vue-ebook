@@ -10,6 +10,7 @@ const book = {
     fontFamilyVisible: false,
     // 默认主题
     defaultTheme: 'Default',
+    // 判断电子书locations加载状态
     bookAvailable: false,
     progress: 0,
     section: 0,

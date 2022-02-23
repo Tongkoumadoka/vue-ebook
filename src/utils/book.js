@@ -75,3 +75,15 @@ export function themeList(vue) {
     }
   ]
 }
+
+// 全局样式切换
+export function addCss(href) {
+  // 创建一个link标签
+  const link = document.createElement('link')
+  // 进行属性设置
+  link.setAttribute('ref', 'stylesheet')
+  link.setAttribute('type', 'text/css')
+  link.setAttribute('href', href)
+  // 将link标签添加到head标签最后
+  document.getElementsByTagName('head')[0].appendChild(link)
+}

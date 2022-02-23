@@ -26,6 +26,8 @@
     <ebook-setting-fonts></ebook-setting-fonts>
     <ebook-setting-font-popup></ebook-setting-font-popup>
     <ebook-setting-theme></ebook-setting-theme>
+    <ebook-setting-progess></ebook-setting-progess>
+    <ebook-slide></ebook-slide>
   </div>
 </template>
 
@@ -36,6 +38,8 @@ import { ebookMixin } from '../../utils/mixin'
 import EbookSettingFonts from './EbookSettingFonts.vue'
 import EbookSettingFontPopup from './EbookSettingFontPopup.vue'
 import EbookSettingTheme from './EbookSettingTheme.vue'
+import EbookSettingProgess from './EbookSettingProgress'
+import EbookSlide from './EbookSlide'
 
 // import { mapGetters } from 'vuex'
 export default {
@@ -43,8 +47,11 @@ export default {
   components: {
     EbookSettingFonts,
     EbookSettingFontPopup,
-    EbookSettingTheme
+    EbookSettingTheme,
+    EbookSettingProgess,
+    EbookSlide
   },
+
   data() {
     return {}
   },

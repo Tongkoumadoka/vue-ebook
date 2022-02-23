@@ -18,3 +18,10 @@ $ratio: calc(750 / 40);
   // 修改ratio即可修改对应比例
   @return calc($px / $ratio) + rem;
 }
+
+// 省略显示
+@mixin ellipsis() {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
